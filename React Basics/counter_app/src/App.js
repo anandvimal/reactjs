@@ -13,11 +13,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Counter</h1>
+    <div className="app-container">
+      <h1 className="counter-heading">Counter</h1>
       <p>Count: {count}</p>
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
+      <div className="button-container">
+        <button className="counter-button" onClick={handleIncrement}>Increment</button>
+        <button className="counter-button" onClick={handleDecrement}>Decrement</button>
+      </div>
     </div>
   );
 }

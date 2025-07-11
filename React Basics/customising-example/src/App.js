@@ -21,15 +21,7 @@ function App() {
 
       <button 
         onClick={handleToggle}
-        style={{
-          padding: "10px 20px",
-          fontSize: "16px",
-          backgroundColor: light ? "#4CAF50" : "#f44336",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer"
-        }}
+        className={`toggle-btn ${light ? "on" : "off"}`}
       >
         {light ? "Turn OFF" : "Turn ON"}
       </button>

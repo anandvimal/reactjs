@@ -5,3 +5,21 @@
     padding: 20px;
     border-radius: 10px;
 }
+
+.toggle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.toggle-btn.on {
+    background-color: #4CAF50;
+}
+
+.toggle-btn.off {
+    background-color: #f44336;
+}
