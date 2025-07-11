@@ -1,75 +1,51 @@
-// import "./App.css";
-
-// function App() {
-
-//     function handleClick() { 
-//         let randomNum = Math.floor(Math.random() * 3) + 1;
-//         console.log(randomNum);
-//         let userInput = prompt('type a number'); 
-//         alert(`Computer number: ${randomNum}, Your guess: ${userInput}`);
-//     }
-
-//     return (
-//       <div>
-//         <h1>Task: Add a button and handle a click event</h1>
-//         <button onClick={handleClick}> Guess the number between 1 and 3 </button>
-//       </div>
-//     );
-//   }
-  
-// export default App;
-
-
-// import "./App.css";
-// import { useState } from "react";
-
-// function App() {
-//   const [inputValue, setInputValue] = useState("Hello World!");
-
-//   function handleInputChange(event) {
-//     setInputValue(event.target.value);
-//   }
-
-//   return (
-//     <div>
-//       <h1>Task: Add a button and handle a click event</h1>
-//       <input type="text" value={inputValue} onChange={handleInputChange} />
-//       <button onClick={() => setInputValue("Boom reset !")}>
-//         Reset Input
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-import "./App.css"; 
-import { useRef } from "react";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const inputRef = useRef(null);
+  // Initialize boolean state with useState
+  const [light, setLight] = useState(false);
 
-  function TextInputWithFocusButton() {
-    const inputEl = useRef(null);
-    const onButtonClick = () => {
-      // `current` points to the mounted text input element
-      inputEl.current.focus();
-    };
-    return (
-      <>
-        <input ref={inputEl} type="text" />
-        <button onClick={onButtonClick}>Focus the input</button>
-      </>
-    );
+  // onClick handler to update the boolean state
+  function handleToggle() {
+    setLight(!light); // Toggle the boolean value
   }
 
   return (
     <div>
-      <TextInputWithFocusButton />
+      <h1>useState with Boolean State Example</h1>
+      
+      <div style={{ margin: "20px 0" }}>
+        <p>Current State: <strong>{light ? "ON" : "OFF"}</strong></p>
+        <p>Boolean Value: <code>{light.toString()}</code></p>
+      </div>
+
+      <button 
+        onClick={handleToggle}
+        style={{
+          padding: "10px 20px",
+          fontSize: "16px",
+          backgroundColor: light ? "#4CAF50" : "#f44336",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer"
+        }}
+      >
+        {light ? "Turn OFF" : "Turn ON"}
+      </button>
+
+      <div style={{ marginTop: "20px" }}>
+        <h3>What's happening:</h3>
+        <ul>
+          <li><strong>useState(false)</strong> - Initializes boolean state to false</li>
+          <li><strong>setIsOn(!isOn)</strong> - Toggles the boolean value when button is clicked</li>
+          <li><strong>onClick={handleToggle}</strong> - Connects the click event to our handler</li>
+        </ul>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
