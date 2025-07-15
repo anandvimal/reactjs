@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+// App.jsx
+import { useState } from 'react';
 import './App.css';
 
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
+import HomePage from './HomePage';
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const login = () => setLoggedIn(true);
+    const logout = () => setLoggedIn(false);
+
+    return (
+        <>
+            {loggedIn ? (
+                <div>
+                    <HomePage />
+                    <LogoutButton logout={logout} />
+                </div>
+            ) : (
+                <LoginButton login={login} />
+            )}
+        </>
+    );
 }
 
 export default App;
