@@ -1,6 +1,10 @@
 function DessertsList(props) {
     // Implement the component here.
-    return null;
+    return (
+        <ul>
+            {props.data}
+        </ul>
+    );
   }
   
   export default DessertsList;

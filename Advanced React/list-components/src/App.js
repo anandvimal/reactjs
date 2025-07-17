@@ -25,10 +25,19 @@ const desserts = [
 ];
 
 function App() {
+
+  // Filter desserts with calories < 500 and map to data objects
+  const lowCalorieDesserts = desserts.map((dessert) => {
+    if (dessert.calories < 500) {
+      return <li key={dessert.name}>{dessert.name} - {dessert.calories} cal</li>;
+    }
+    //return null;
+  });
+
   return (
     <div className="App">
       <h2>List of low calorie desserts:</h2>
-      <DessertsList data={desserts} />
+      <DessertsList data={lowCalorieDesserts} />
     </div>
   );
 }
